@@ -1,5 +1,6 @@
 package br.com.consultorionutricionalapi;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,12 @@ public class UserController {
 		if (!optUser.isPresent()) {
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
-		return ResponseEntity.status(HttpStatus.OK).body(opt.get());
+		return ResponseEntity.status(HttpStatus.OK).body(optUser.get());
 	}
 
+	@RequestMapping(method = RequestMethod.GET)
+	public ResponseEntity<List<User>> findAll() {
+		List<User> optUser = service.litAll();
+		return ResponseEntity.status(HttpStatus.OK).body(optUser);
+	}
 }

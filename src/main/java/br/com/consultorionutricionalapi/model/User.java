@@ -1,19 +1,32 @@
 package br.com.consultorionutricionalapi.model;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column(name = "name")
 	private String name;
+	@Column(name = "cpf")
 	private String cpf;
-	private LocalDateTime dataNascimento;
+	@Column(name = "data_nascimento")
+	private LocalDate dataNascimento;
 
 	public User() {
 	}
 
-	public User(Long id, String name, String cpf, LocalDateTime dataNascimento) {
+	public User(Long id, String name, String cpf, LocalDate dataNascimento) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -45,11 +58,11 @@ public class User implements Serializable {
 		this.cpf = cpf;
 	}
 
-	public LocalDateTime getDataNascimento() {
+	public LocalDate getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(LocalDateTime dataNascimento) {
+	public void setDataNascimento(LocalDate dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 

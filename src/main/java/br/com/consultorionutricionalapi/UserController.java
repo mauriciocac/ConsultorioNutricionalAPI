@@ -50,4 +50,15 @@ public class UserController {
 		service.deleteById(id);
 		return ResponseEntity.status(HttpStatus.OK).build();
 	}
+
+	@RequestMapping(method = RequestMethod.PUT, value = "/{id}")
+	public ResponseEntity<User> update(@PathVariable Long id, @RequestBody User user) {
+		Optional<User> userOpt = service.findById(id);
+		if (!userOpt.isPresent()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
+		user.setId(id);
+		User userUpdated = service.update(user);
+		return ResponseEntity.status(HttpStatus.OK).body(userUpdated);
+	}
 }

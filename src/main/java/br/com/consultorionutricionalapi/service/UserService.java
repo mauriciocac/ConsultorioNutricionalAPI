@@ -13,4 +13,6 @@ public interface UserService {
 	List<User> litAll();
 
 	void deleteById(Long id);
+
+	User update(User user);
 }

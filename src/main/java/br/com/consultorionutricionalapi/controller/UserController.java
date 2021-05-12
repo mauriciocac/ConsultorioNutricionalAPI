@@ -1,4 +1,4 @@
-package br.com.consultorionutricionalapi;
+package br.com.consultorionutricionalapi.controller;
 
 import java.util.List;
 import java.util.Optional;

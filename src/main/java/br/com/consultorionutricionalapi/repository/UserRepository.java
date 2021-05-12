@@ -1,4 +1,4 @@
-package br.com.consultorionutricionalapi;
+package br.com.consultorionutricionalapi.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

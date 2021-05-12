@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.consultorionutricionalapi.UserRepository;
 import br.com.consultorionutricionalapi.model.User;
+import br.com.consultorionutricionalapi.repository.UserRepository;
 import br.com.consultorionutricionalapi.service.UserService;
 
 @Service

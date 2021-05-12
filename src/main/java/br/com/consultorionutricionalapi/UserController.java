@@ -40,4 +40,14 @@ public class UserController {
 		List<User> optUser = service.litAll();
 		return ResponseEntity.status(HttpStatus.OK).body(optUser);
 	}
+
+	@RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
+	public ResponseEntity<Void> delete(@PathVariable Long id) {
+		Optional<User> user = service.findById(id);
+		if (!user.isPresent()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+		}
+		service.deleteById(id);
+		return ResponseEntity.status(HttpStatus.OK).build();
+	}
 }

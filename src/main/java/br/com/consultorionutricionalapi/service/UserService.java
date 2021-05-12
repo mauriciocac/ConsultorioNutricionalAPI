@@ -11,4 +11,6 @@ public interface UserService {
 	Optional<User> findById(Long id);
 
 	List<User> litAll();
+
+	void deleteById(Long id);
 }
